@@ -22,7 +22,7 @@ export default async function Home({
           <span style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontWeight: 900, fontSize: "14rem", lineHeight: 1, letterSpacing: "-0.04em", color: "var(--text-primary)" }}>
             datti
           </span>
-          <svg width="36" height="36" viewBox="0 0 6 6" fill="none" style={{ marginBottom: 0 }}>
+          <svg width="36" height="36" viewBox="0 0 6 6" fill="none" style={{ marginBottom: "1.2rem" }}>
             <circle cx="3" cy="3" r="3" fill="var(--accent)" />
           </svg>
         </div>
