@@ -36,7 +36,9 @@ export default function Footer({ lang = "es" }: { lang?: Lang }) {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div className="flex flex-col gap-2">
-            <Logo size="sm" />
+            <div style={{ display: "inline-flex", alignItems: "flex-end" }}>
+              <Logo size="sm" />
+            </div>
             <p className="text-sm mt-1" style={{ color: "var(--text-muted)" }}>
               El control de tus datos, en tus manos.
             </p>

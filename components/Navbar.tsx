@@ -85,7 +85,7 @@ export default function Navbar({ lang = "es", base = "" }: { lang?: Lang; base?:
           }}
         >
           {/* Logo */}
-          <a href="#" className="flex items-center mr-6 flex-shrink-0">
+          <a href={base || "/"} className="flex items-center mr-6 flex-shrink-0">
             <Logo size="sm" />
           </a>
 
@@ -173,13 +173,13 @@ export default function Navbar({ lang = "es", base = "" }: { lang?: Lang; base?:
             style={{ background: "var(--bg-subtle)", border: "none", cursor: "pointer" }}
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <div className="flex flex-col gap-[5px] w-5">
-              <span className="block h-[1.5px] transition-all origin-center"
-                style={{ background: "var(--text-secondary)", transform: menuOpen ? "rotate(45deg) translateY(6.5px)" : "none" }} />
-              <span className="block h-[1.5px] transition-all"
-                style={{ background: "var(--text-secondary)", opacity: menuOpen ? 0 : 1 }} />
-              <span className="block h-[1.5px] transition-all origin-center"
-                style={{ background: "var(--text-secondary)", transform: menuOpen ? "rotate(-45deg) translateY(-6.5px)" : "none" }} />
+            <div className="relative w-4 h-3">
+              <span className="absolute block w-full h-[1.5px] transition-all duration-300 origin-center"
+                style={{ background: "var(--text-secondary)", top: menuOpen ? "50%" : "0px", transform: menuOpen ? "translateY(-50%) rotate(45deg)" : "none" }} />
+              <span className="absolute block w-full h-[1.5px] transition-all duration-300"
+                style={{ background: "var(--text-secondary)", top: "50%", transform: "translateY(-50%)", opacity: menuOpen ? 0 : 1 }} />
+              <span className="absolute block w-full h-[1.5px] transition-all duration-300 origin-center"
+                style={{ background: "var(--text-secondary)", top: menuOpen ? "50%" : "100%", transform: menuOpen ? "translateY(-50%) rotate(-45deg)" : "none" }} />
             </div>
           </button>
         </nav>
