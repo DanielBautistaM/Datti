@@ -16,18 +16,7 @@ export default async function Home({
   const { lang } = await params;
   return (
     <main>
-      {/* TEMP — logo fullscreen para descarga */}
-      <div style={{ position: "fixed", inset: 0, zIndex: 9999, background: "var(--bg)", display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 28, userSelect: "none" }}>
-          <span style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontWeight: 900, fontSize: "14rem", lineHeight: 1, letterSpacing: "-0.04em", color: "var(--text-primary)" }}>
-            datti
-          </span>
-          <svg width="36" height="36" viewBox="0 0 6 6" fill="none" style={{ marginBottom: "0.7rem" }}>
-            <circle cx="3" cy="3" r="3" fill="var(--accent)" />
-          </svg>
-        </div>
-      </div>
-      <Navbar lang={lang} />
+<Navbar lang={lang} />
       <Hero lang={lang} />
       <Problem lang={lang} />
       <Services lang={lang} />
