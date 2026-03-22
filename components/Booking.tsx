@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Lang } from "@/lib/types";
-import Logo from "@/components/Logo";
+import { useTheme } from "@/context/ThemeContext";
 
-const CAL_LINK = "datti/30min";
+const CAL_USER = "datti";
+const CAL_EVENT = "30min";
 
 const content = {
   es: {
@@ -12,116 +13,148 @@ const content = {
     title1: "Hablemos de",
     title2: "tus datos.",
     sub: "30 minutos. Sin costo. Te decimos exactamente qué necesita tu empresa y cómo lograrlo.",
-    back: "← Volver",
   },
   en: {
     tag: "Book a Call",
     title1: "Let's talk about",
     title2: "your data.",
     sub: "30 minutes. No cost. We'll tell you exactly what your business needs and how to get there.",
-    back: "← Back",
   },
 };
 
-export default function Booking({ lang = "es", standalone = false }: { lang?: Lang; standalone?: boolean }) {
+const socials = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/datti",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+    ),
+  },
+  {
+    label: "Instagram",
+    href: "#",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <circle cx="12" cy="12" r="5" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    label: "TikTok",
+    href: "#",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Email",
+    href: "mailto:team@datti.co",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+        <rect x="2" y="4" width="20" height="16" rx="2" />
+        <path d="M2 7l10 7 10-7" />
+      </svg>
+    ),
+  },
+];
+
+export default function Booking({ lang = "es" }: { lang?: Lang }) {
   const ref = useRef<HTMLDivElement>(null);
   const tx = content[lang];
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const calTheme = theme === "dark" ? "dark" : "light";
+
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
-    const existing = document.getElementById("cal-embed-script");
-    if (!existing) {
-      const script = document.createElement("script");
-      script.id = "cal-embed-script";
-      script.innerHTML = `
-        (function (C, A, L) {
-          let p = function (a, ar) { a.q.push(ar); };
-          let d = C.document;
-          C.Cal = C.Cal || function () {
-            let cal = C.Cal; let ar = arguments;
-            if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
-            if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; }
-            p(cal, ar);
-          };
-        })(window, "https://app.cal.com/embed/embed.js", "init");
-        Cal("init", { origin: "https://cal.com" });
-        Cal("inline", {
-          elementOrSelector: "#cal-booking-embed",
-          calLink: "${CAL_LINK}",
-          layout: "month_view",
-        });
-        Cal("ui", {
-          styles: { branding: { brandColor: "#5C4DFF" } },
-          hideEventTypeDetails: false,
-        });
-      `;
-      document.head.appendChild(script);
-    }
+    const ob = new IntersectionObserver(
+      (e) => e.forEach((x) => x.isIntersecting && x.target.classList.add("visible")),
+      { threshold: 0.05 }
+    );
+    ref.current?.querySelectorAll(".reveal").forEach((el) => ob.observe(el));
+    return () => ob.disconnect();
   }, []);
 
-  if (standalone) {
-    return (
+  const calSrc = `https://cal.com/${CAL_USER}/${CAL_EVENT}?embed=true&theme=${calTheme}&brandColor=%235C4DFF&layout=month_view`;
+
+  return (
+    <section className="relative py-20 px-6 overflow-hidden" ref={ref}>
       <div
+        className="orb"
         style={{
-          minHeight: "100vh",
-          background: "var(--bg)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          padding: "40px 24px 60px",
+          width: 500, height: 500,
+          background: "radial-gradient(circle, rgba(92,77,255,0.09) 0%, transparent 70%)",
+          top: "0%", right: "-5%", filter: "blur(80px)",
+          animation: "float 11s ease-in-out infinite",
         }}
-        className="dark"
-      >
-        {/* Top bar */}
-        <div style={{ width: "100%", maxWidth: 860, display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 48 }}>
-          <a href={lang === "es" ? "/es" : "/en"} style={{ textDecoration: "none" }}>
-            <Logo size="md" />
-          </a>
-          <a
-            href={lang === "es" ? "/es" : "/en"}
-            style={{ fontSize: "0.85rem", color: "var(--text-muted)", textDecoration: "none", fontWeight: 500 }}
-          >
-            {tx.back}
-          </a>
-        </div>
+      />
+
+      <div className="max-w-5xl mx-auto">
 
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: 40, maxWidth: 560 }}>
-          <h1
-            className="font-display font-black leading-tight"
-            style={{ fontSize: "clamp(2rem, 5vw, 3rem)", color: "var(--text-primary)", marginBottom: 12 }}
+        <div className="text-center mb-12 reveal">
+          <span className="tag-pill justify-center">{tx.tag}</span>
+          <h2
+            className="font-display font-black leading-tight mt-5 mb-4"
+            style={{ fontSize: "clamp(2rem, 4.5vw, 3.25rem)", color: "var(--text-primary)" }}
           >
-            {tx.title1} <span className="text-gradient">{tx.title2}</span>
-          </h1>
-          <p style={{ color: "var(--text-secondary)", fontSize: "1rem", lineHeight: 1.6 }}>
+            {tx.title1}{" "}
+            <span className="text-gradient">{tx.title2}</span>
+          </h2>
+          <p className="text-lg max-w-lg mx-auto" style={{ color: "var(--text-secondary)" }}>
             {tx.sub}
           </p>
         </div>
 
         {/* Calendar */}
         <div
+          className="reveal"
           style={{
-            width: "100%",
-            maxWidth: 860,
             borderRadius: 20,
             overflow: "hidden",
             border: "1px solid var(--border)",
             background: "var(--bg-card)",
             boxShadow: "var(--shadow-lg)",
-            minHeight: 600,
+            height: 600,
           }}
         >
-          <div id="cal-booking-embed" style={{ width: "100%", minHeight: 600 }} />
+          {mounted && (
+            <iframe
+              key={`${calTheme}-${lang}`}
+              src={calSrc}
+              style={{ width: "100%", height: 755, border: "none", display: "block" }}
+              loading="lazy"
+            />
+          )}
         </div>
-      </div>
-    );
-  }
 
-  // Embedded in main page (unused for now)
-  return (
-    <section className="relative py-20 px-6 overflow-hidden" ref={ref}>
-      <div className="divider absolute top-0 left-0 right-0" />
-      <div className="max-w-5xl mx-auto">
-        <div id="cal-booking-embed" style={{ width: "100%", minHeight: 600 }} />
+        {/* Social links */}
+        <div className="flex items-center justify-center gap-6 mt-10 reveal">
+          {socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              aria-label={s.label}
+              target={s.href.startsWith("http") ? "_blank" : undefined}
+              rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              style={{ color: "var(--text-muted)", transition: "color 0.2s" }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--accent)")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--text-muted)")}
+            >
+              {s.icon}
+            </a>
+          ))}
+        </div>
+
       </div>
     </section>
   );

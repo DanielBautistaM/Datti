@@ -28,13 +28,39 @@ const t = {
   },
 };
 
-export default function Navbar({ lang = "es" }: { lang?: Lang }) {
+export default function Navbar({ lang = "es", base = "" }: { lang?: Lang; base?: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
   const tx = t[lang];
   const otherLang = lang === "es" ? "en" : "es";
+  const href = (h: string) => h === "#" ? (base || "#") : `${base}${h}`;
+
+  const langHref = (l: string) => {
+    if (typeof window === "undefined") return `/${l}`;
+    const pathname = window.location.pathname;
+
+    // Standalone pages — switch between their equivalents
+    if (pathname === "/agendar" || pathname === "/schedule") {
+      return l === "es" ? "/agendar" : "/schedule";
+    }
+
+    // Main page — detect current visible section
+    const sections = ["servicios", "por-que", "proceso", "contacto"];
+    let currentHash = window.location.hash;
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.55 && rect.bottom >= window.innerHeight * 0.1) {
+          currentHash = `#${id}`;
+          break;
+        }
+      }
+    }
+    return `/${l}${currentHash}`;
+  };
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 20);
@@ -71,7 +97,7 @@ export default function Navbar({ lang = "es" }: { lang?: Lang }) {
             {tx.links.map((l) => (
               <a
                 key={l.href}
-                href={l.href}
+                href={href(l.href)}
                 className="px-5 py-2.5 text-sm font-medium rounded-full transition-all whitespace-nowrap"
                 style={{ color: "var(--text-secondary)" }}
                 onMouseEnter={(e) => { const el = e.currentTarget; el.style.color = "var(--text-primary)"; el.style.background = "var(--bg-subtle)"; }}
@@ -99,6 +125,7 @@ export default function Navbar({ lang = "es" }: { lang?: Lang }) {
                     href={`/${l}`}
                     className="text-xs font-bold transition-colors"
                     style={{ color: "var(--text-muted)", textDecoration: "none", letterSpacing: "0.05em" }}
+                    onClick={(e) => { e.preventDefault(); window.location.href = langHref(l); }}
                     onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-primary)"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-muted)"; }}
                   >
@@ -171,7 +198,7 @@ export default function Navbar({ lang = "es" }: { lang?: Lang }) {
       >
         <div className="px-6 pb-6 flex flex-col gap-1">
           {tx.links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}
+            <a key={l.href} href={href(l.href)} onClick={() => setMenuOpen(false)}
               className="px-4 py-3 rounded-xl text-sm font-medium"
               style={{ color: "var(--text-secondary)" }}>
               {l.label}
@@ -188,7 +215,8 @@ export default function Navbar({ lang = "es" }: { lang?: Lang }) {
                   {l === lang ? (
                     <span className="text-xs font-bold" style={{ color: "var(--accent)" }}>{l.toUpperCase()}</span>
                   ) : (
-                    <a href={`/${l}`} className="text-xs font-bold" style={{ color: "var(--text-muted)", textDecoration: "none" }}>
+                    <a href={`/${l}`} className="text-xs font-bold" style={{ color: "var(--text-muted)", textDecoration: "none" }}
+                      onClick={(e) => { e.preventDefault(); setMenuOpen(false); window.location.href = langHref(l); }}>
                       {l.toUpperCase()}
                     </a>
                   )}

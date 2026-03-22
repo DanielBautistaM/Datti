@@ -23,11 +23,13 @@ export function middleware(request: NextRequest) {
   );
   if (hasLocale) return;
 
-  // Skip internals
+  // Skip internals and standalone pages
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
-    pathname.includes(".")
+    pathname.includes(".") ||
+    pathname === "/agendar" ||
+    pathname === "/schedule"
   ) return;
 
   const locale = detectLocale(request);

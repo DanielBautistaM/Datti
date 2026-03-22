@@ -25,6 +25,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning className="dark">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            try {
+              var saved = localStorage.getItem('datti-theme');
+              var theme = saved || 'dark';
+              document.documentElement.classList.toggle('dark', theme === 'dark');
+            } catch(e) {}
+          })();
+        `}} />
+      </head>
       <body className={`${inter.variable} ${playfair.variable}`}>
         <Providers>{children}</Providers>
       </body>
