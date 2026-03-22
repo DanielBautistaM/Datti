@@ -4,27 +4,27 @@ import { useEffect, useRef, useState } from "react";
 import type { Lang } from "@/lib/types";
 
 const bubbles = [
-  { value: "10×",   label: "ROI en 6 meses",            size: 220, accent: "#5C4DFF", dur: "7s",   delay: "0s"   },
-  { value: "87%",   label: "menos decisiones a ciegas", size: 155, accent: "#9B4DFF", dur: "9s",   delay: "1.4s" },
-  { value: "100%",  label: "ownership total",            size: 185, accent: "#7B6FFF", dur: "8s",   delay: "0.7s" },
-  { value: "3×",    label: "más rápido reportar",        size: 130, accent: "#5C4DFF", dur: "10s",  delay: "2s"   },
-  { value: "↓40%",  label: "costos operativos",          size: 145, accent: "#B87FFF", dur: "6.5s", delay: "1s"   },
-  { value: "5×",    label: "fuentes integradas",         size: 110, accent: "#9B4DFF", dur: "8.5s", delay: "1.7s" },
-  { value: "∞",     label: "escalabilidad",              size: 95,  accent: "#5C4DFF", dur: "11s",  delay: "0.3s" },
-  { value: "99.9%", label: "uptime",                     size: 120, accent: "#7B6FFF", dur: "7.5s", delay: "2.3s" },
-  { value: "<1s",   label: "latencia",                   size: 100, accent: "#B87FFF", dur: "9.5s", delay: "0.9s" },
+  { value: "10×",   label: "ROI en 6 meses",            size: 220, accent: "#E02020", dur: "7s",   delay: "0s"   },
+  { value: "87%",   label: "menos decisiones a ciegas", size: 155, accent: "#FF4D4D", dur: "9s",   delay: "1.4s" },
+  { value: "100%",  label: "ownership total",            size: 185, accent: "#FF4040", dur: "8s",   delay: "0.7s" },
+  { value: "3×",    label: "más rápido reportar",        size: 130, accent: "#E02020", dur: "10s",  delay: "2s"   },
+  { value: "↓40%",  label: "costos operativos",          size: 145, accent: "#FF7070", dur: "6.5s", delay: "1s"   },
+  { value: "5×",    label: "fuentes integradas",         size: 110, accent: "#FF4D4D", dur: "8.5s", delay: "1.7s" },
+  { value: "∞",     label: "escalabilidad",              size: 95,  accent: "#E02020", dur: "11s",  delay: "0.3s" },
+  { value: "99.9%", label: "uptime",                     size: 120, accent: "#FF4040", dur: "7.5s", delay: "2.3s" },
+  { value: "<1s",   label: "latencia",                   size: 100, accent: "#FF7070", dur: "9.5s", delay: "0.9s" },
 ];
 
 const bubblesEn = [
-  { value: "10×",   label: "ROI in 6 months",         size: 220, accent: "#5C4DFF", dur: "7s",   delay: "0s"   },
-  { value: "87%",   label: "fewer blind decisions",    size: 155, accent: "#9B4DFF", dur: "9s",   delay: "1.4s" },
-  { value: "100%",  label: "full ownership",           size: 185, accent: "#7B6FFF", dur: "8s",   delay: "0.7s" },
-  { value: "3×",    label: "faster reporting",         size: 130, accent: "#5C4DFF", dur: "10s",  delay: "2s"   },
-  { value: "↓40%",  label: "operating costs",         size: 145, accent: "#B87FFF", dur: "6.5s", delay: "1s"   },
-  { value: "5×",    label: "sources integrated",      size: 110, accent: "#9B4DFF", dur: "8.5s", delay: "1.7s" },
-  { value: "∞",     label: "scalability",             size: 95,  accent: "#5C4DFF", dur: "11s",  delay: "0.3s" },
-  { value: "99.9%", label: "uptime",                  size: 120, accent: "#7B6FFF", dur: "7.5s", delay: "2.3s" },
-  { value: "<1s",   label: "latency",                 size: 100, accent: "#B87FFF", dur: "9.5s", delay: "0.9s" },
+  { value: "10×",   label: "ROI in 6 months",         size: 220, accent: "#E02020", dur: "7s",   delay: "0s"   },
+  { value: "87%",   label: "fewer blind decisions",    size: 155, accent: "#FF4D4D", dur: "9s",   delay: "1.4s" },
+  { value: "100%",  label: "full ownership",           size: 185, accent: "#FF4040", dur: "8s",   delay: "0.7s" },
+  { value: "3×",    label: "faster reporting",         size: 130, accent: "#E02020", dur: "10s",  delay: "2s"   },
+  { value: "↓40%",  label: "operating costs",         size: 145, accent: "#FF7070", dur: "6.5s", delay: "1s"   },
+  { value: "5×",    label: "sources integrated",      size: 110, accent: "#FF4D4D", dur: "8.5s", delay: "1.7s" },
+  { value: "∞",     label: "scalability",             size: 95,  accent: "#E02020", dur: "11s",  delay: "0.3s" },
+  { value: "99.9%", label: "uptime",                  size: 120, accent: "#FF4040", dur: "7.5s", delay: "2.3s" },
+  { value: "<1s",   label: "latency",                 size: 100, accent: "#FF7070", dur: "9.5s", delay: "0.9s" },
 ];
 
 const uiText = {

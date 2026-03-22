@@ -31,7 +31,7 @@ const planes = [
     precio: "$900.000",
     descripcion: "Para empresas que quieren dejar de adivinar y empezar a ver sus datos.",
     popular: false,
-    color: "#5C4DFF",
+    color: "#E02020",
     cta: "Empezar Ahora",
     caracteristicas: [
       "Auditoría de datos inicial",
@@ -49,7 +49,7 @@ const planes = [
     precio: "$2.500.000",
     descripcion: "Para empresas que quieren tomar decisiones basadas en datos, no en corazonadas.",
     popular: true,
-    color: "#5C4DFF",
+    color: "#E02020",
     cta: "Tomar el Control",
     caracteristicas: [
       "Todo lo de Esencial +",
@@ -69,7 +69,7 @@ const planes = [
     precio: "$7.500.000",
     descripcion: "Para empresas que quieren una ventaja competitiva real basada en sus datos.",
     popular: false,
-    color: "#9B4DFF",
+    color: "#FF4D4D",
     cta: "Hablar con un Experto",
     caracteristicas: [
       "Todo lo de Control +",
@@ -90,7 +90,7 @@ const planes = [
     precio: "A convenir",
     descripcion: "Para empresas que quieren su propio equipo de datos sin contratarlo.",
     popular: false,
-    color: "#5C4DFF",
+    color: "#E02020",
     cta: "Agendar Consultoría",
     caracteristicas: [
       "Todo lo de Dominio +",
@@ -114,7 +114,7 @@ const planesEn = [
     precio: "$900.000",
     descripcion: "For companies ready to stop guessing and start seeing their data.",
     popular: false,
-    color: "#5C4DFF",
+    color: "#E02020",
     cta: "Start Now",
     caracteristicas: [
       "Initial data audit",
@@ -132,7 +132,7 @@ const planesEn = [
     precio: "$2.500.000",
     descripcion: "For companies ready to make decisions based on data, not gut feeling.",
     popular: true,
-    color: "#5C4DFF",
+    color: "#E02020",
     cta: "Take Control",
     caracteristicas: [
       "Everything in Essential +",
@@ -152,7 +152,7 @@ const planesEn = [
     precio: "$7.500.000",
     descripcion: "For companies that want a real competitive edge powered by their data.",
     popular: false,
-    color: "#9B4DFF",
+    color: "#FF4D4D",
     cta: "Talk to an Expert",
     caracteristicas: [
       "Everything in Control +",
@@ -173,7 +173,7 @@ const planesEn = [
     precio: "Custom",
     descripcion: "For companies that want their own data team without hiring one.",
     popular: false,
-    color: "#5C4DFF",
+    color: "#E02020",
     cta: "Schedule a Consultation",
     caracteristicas: [
       "Everything in Mastery +",
@@ -243,7 +243,7 @@ function CardContent({ p, lang }: { p: PlanShape; lang: Lang }) {
             <span
               className="inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-full text-white whitespace-nowrap"
               style={{
-                background: "linear-gradient(135deg, #5C4DFF, #9B4DFF)",
+                background: "linear-gradient(135deg, #E02020, #FF4D4D)",
                 boxShadow: "0 2px 8px rgba(92,77,255,0.35)",
               }}
             >

@@ -107,7 +107,7 @@ export default function IntroOverlay({ lang }: { lang: Lang }) {
               style={{
                 width: 14,
                 borderRadius: 4,
-                background: "linear-gradient(180deg, #7B6FFF, #5C4DFF)",
+                background: "linear-gradient(180deg, #FF4040, #E02020)",
                 opacity: bar.opacity,
                 height: barsReady ? bar.h : 0,
                 transition: `height 0.6s cubic-bezier(0.34,1.56,0.64,1) ${bar.delay}`,
@@ -154,7 +154,7 @@ export default function IntroOverlay({ lang }: { lang: Lang }) {
                 fontWeight: 700,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                background: "linear-gradient(90deg, #7B6FFF, #B87FFF)",
+                background: "linear-gradient(90deg, #FF4040, #FF7070)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}>
@@ -223,7 +223,7 @@ function DataStreams({ side }: { side: "top" | "bottom" }) {
               fontFamily: "monospace",
               fontSize: "0.65rem",
               fontWeight: 700,
-              color: "#7B6FFF",
+              color: "#FF4040",
               letterSpacing: "0.05em",
               whiteSpace: "nowrap",
             }}>

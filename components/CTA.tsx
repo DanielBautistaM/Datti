@@ -88,7 +88,7 @@ export default function CTA({ lang = "es" }: { lang?: Lang }) {
       <div className="divider absolute top-0 left-0 right-0" />
       <div className="orb" style={{
         width: 600, height: 600,
-        background: "radial-gradient(circle, rgba(92,77,255,0.08) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(224,32,32,0.08) 0%, transparent 70%)",
         bottom: "-20%", left: "-10%", filter: "blur(80px)",
         animation: "float 9s ease-in-out infinite",
       }} />
