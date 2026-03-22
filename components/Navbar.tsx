@@ -12,6 +12,7 @@ const t = {
       { label: "Servicios", href: "#servicios" },
       { label: "Control",   href: "#por-que" },
       { label: "Proceso",   href: "#proceso" },
+      { label: "Agendar",   href: "#agendar" },
     ],
     cta: "Agendar Llamada",
     ariaTheme: "Cambiar tema",
@@ -22,6 +23,7 @@ const t = {
       { label: "Services", href: "#servicios" },
       { label: "Results",  href: "#por-que" },
       { label: "Process",  href: "#proceso" },
+      { label: "Book",     href: "#agendar" },
     ],
     cta: "Book a Call",
     ariaTheme: "Toggle theme",
@@ -135,7 +137,7 @@ export default function Navbar({ lang = "es" }: { lang?: Lang }) {
           </button>
 
           {/* CTA — fixed size based on longest text (Agendar Llamada) */}
-          <a href="#contacto" className="btn-dark text-sm flex-shrink-0" style={{ padding: "10px 20px", textAlign: "center", position: "relative" }}>
+          <a href="#agendar" className="btn-dark text-sm flex-shrink-0" style={{ padding: "10px 20px", textAlign: "center", position: "relative" }}>
             <span style={{ visibility: "hidden", pointerEvents: "none" }}>Agendar Llamada</span>
             <span style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>{tx.cta}</span>
           </a>
@@ -178,7 +180,7 @@ export default function Navbar({ lang = "es" }: { lang?: Lang }) {
             </a>
           ))}
           <div className="flex gap-2 mt-3">
-            <a href="#contacto" className="btn-dark text-sm text-center flex-1" onClick={() => setMenuOpen(false)}>
+            <a href="#agendar" className="btn-dark text-sm text-center flex-1" onClick={() => setMenuOpen(false)}>
               {tx.cta}
             </a>
             <div className="flex items-center justify-center gap-1 px-4 rounded-xl" style={{ border: "1px solid var(--border)" }}>
