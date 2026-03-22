@@ -29,6 +29,10 @@ export async function generateMetadata({
       type: "website",
       locale: isEs ? "es_CO" : "en_US",
     },
+    icons: {
+      icon: "/favicon.png",
+      apple: "/favicon.png",
+    },
     alternates: {
       canonical: `https://datti.co/${lang}`,
       languages: { es: "https://datti.co/es", en: "https://datti.co/en" },
