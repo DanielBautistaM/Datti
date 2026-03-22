@@ -18,7 +18,7 @@ export default async function Home({
     <main>
       {/* TEMP — logo fullscreen para descarga */}
       <div style={{ position: "fixed", inset: 0, zIndex: 9999, background: "var(--bg)", display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 16, userSelect: "none" }}>
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 28, userSelect: "none" }}>
           <span style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontWeight: 900, fontSize: "14rem", lineHeight: 1, letterSpacing: "-0.04em", color: "var(--text-primary)" }}>
             datti
           </span>
