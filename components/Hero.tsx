@@ -57,7 +57,7 @@ export default function Hero({ lang = "es" }: { lang?: Lang }) {
           top: "10%",
           width: 340,
           height: "80%",
-          background: "linear-gradient(90deg, rgba(224,32,32,0.13) 0%, rgba(224,32,32,0.04) 60%, transparent 100%)",
+          background: "linear-gradient(90deg, rgba(92,77,255,0.13) 0%, rgba(92,77,255,0.04) 60%, transparent 100%)",
           filter: "blur(40px)",
           borderRadius: "0 100% 100% 0",
           animation: "float 11s ease-in-out infinite",
@@ -70,7 +70,7 @@ export default function Hero({ lang = "es" }: { lang?: Lang }) {
           top: "25%",
           width: 160,
           height: "40%",
-          background: "linear-gradient(90deg, rgba(255,64,64,0.18) 0%, transparent 100%)",
+          background: "linear-gradient(90deg, rgba(123,111,255,0.18) 0%, transparent 100%)",
           filter: "blur(24px)",
           animation: "float 8s ease-in-out infinite 1.5s",
         }}
@@ -84,7 +84,7 @@ export default function Hero({ lang = "es" }: { lang?: Lang }) {
           top: "15%",
           width: 340,
           height: "70%",
-          background: "linear-gradient(270deg, rgba(255,77,77,0.12) 0%, rgba(255,77,77,0.04) 60%, transparent 100%)",
+          background: "linear-gradient(270deg, rgba(155,77,255,0.12) 0%, rgba(155,77,255,0.04) 60%, transparent 100%)",
           filter: "blur(40px)",
           borderRadius: "100% 0 0 100%",
           animation: "float 13s ease-in-out infinite 0.8s",
@@ -97,7 +97,7 @@ export default function Hero({ lang = "es" }: { lang?: Lang }) {
           top: "35%",
           width: 160,
           height: "35%",
-          background: "linear-gradient(270deg, rgba(255,112,112,0.16) 0%, transparent 100%)",
+          background: "linear-gradient(270deg, rgba(184,127,255,0.16) 0%, transparent 100%)",
           filter: "blur(24px)",
           animation: "float 9s ease-in-out infinite 2.2s",
         }}
@@ -106,7 +106,7 @@ export default function Hero({ lang = "es" }: { lang?: Lang }) {
       {/* Center ambient orb */}
       <div className="orb" style={{
         width: 600, height: 600,
-        background: "radial-gradient(circle, rgba(224,32,32,0.07) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(92,77,255,0.07) 0%, transparent 70%)",
         top: "50%", left: "50%",
         transform: "translate(-50%, -50%)",
         filter: "blur(80px)",
