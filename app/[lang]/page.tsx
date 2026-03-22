@@ -16,13 +16,13 @@ export default async function Home({
   const { lang } = await params;
   return (
     <main>
-      {/* TEMP — logo grande para descarga */}
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "80px 0", background: "var(--bg)" }}>
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 6, userSelect: "none" }}>
-          <span style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontWeight: 900, fontSize: "10rem", lineHeight: 1, letterSpacing: "-0.04em", color: "var(--text-primary)" }}>
+      {/* TEMP — logo fullscreen para descarga */}
+      <div style={{ position: "fixed", inset: 0, zIndex: 9999, background: "var(--bg)", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 8, userSelect: "none" }}>
+          <span style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontWeight: 900, fontSize: "14rem", lineHeight: 1, letterSpacing: "-0.04em", color: "var(--text-primary)" }}>
             datti
           </span>
-          <svg width="28" height="28" viewBox="0 0 6 6" fill="none" style={{ marginBottom: "1.4rem" }}>
+          <svg width="36" height="36" viewBox="0 0 6 6" fill="none" style={{ marginBottom: "2rem" }}>
             <circle cx="3" cy="3" r="3" fill="var(--accent)" />
           </svg>
         </div>
