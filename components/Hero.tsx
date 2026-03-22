@@ -116,7 +116,7 @@ export default function Hero({ lang = "es" }: { lang?: Lang }) {
       {/* Mouse follow glow */}
       <div
         className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(460px circle at var(--mx) var(--my), rgba(224,32,32,0.06), transparent 60%)" }}
+        style={{ background: "radial-gradient(460px circle at var(--mx) var(--my), rgba(92,77,255,0.06), transparent 60%)" }}
       />
 
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-7">
