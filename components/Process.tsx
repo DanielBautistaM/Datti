@@ -104,7 +104,7 @@ const uiContent = {
   },
 };
 
-const colors = ["#5C4DFF", "#7B6FFF", "#9B4DFF", "#B87FFF"];
+const colors = ["#0047FF", "#5870FF", "#3A5AFF", "#4460FF"];
 const STEP = 80;
 
 /* ── Each card manages its OWN hover state — no cross-card interference ── */
@@ -289,8 +289,8 @@ export default function Process({ lang = "es" }: { lang?: Lang }) {
           >
             <defs>
               <linearGradient id="stairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#5C4DFF" />
-                <stop offset="100%" stopColor="#B87FFF" />
+                <stop offset="0%" stopColor="#0047FF" />
+                <stop offset="100%" stopColor="#4460FF" />
               </linearGradient>
               <filter id="dotGlow">
                 <feGaussianBlur stdDeviation="3" result="blur" />
@@ -303,7 +303,7 @@ export default function Process({ lang = "es" }: { lang?: Lang }) {
                 <path d={pathD} fill="none" stroke="url(#stairGrad)" strokeWidth="1.5" strokeLinecap="round" className="process-path" />
                 {visible && (
                   <circle r="5.5" filter="url(#dotGlow)">
-                    <animate attributeName="fill" values="#5C4DFF;#9B4DFF;#B87FFF;#5C4DFF" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="fill" values="#0047FF;#3A5AFF;#4460FF;#0047FF" dur="3s" repeatCount="indefinite" />
                     <animateMotion dur="3s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear">
                       <mpath href="#stair-path" />
                     </animateMotion>

@@ -10,8 +10,8 @@ const t = {
     links: [
       { label: "Inicio",    href: "#" },
       { label: "Servicios", href: "#servicios" },
-      { label: "Control",   href: "#por-que" },
       { label: "Proceso",   href: "#proceso" },
+      { label: "Control",   href: "#por-que" },
     ],
     cta: "Agendar Llamada",
     ariaTheme: "Cambiar tema",
@@ -20,8 +20,8 @@ const t = {
     links: [
       { label: "Home",     href: "#" },
       { label: "Services", href: "#servicios" },
-      { label: "Results",  href: "#por-que" },
       { label: "Process",  href: "#proceso" },
+      { label: "Results",  href: "#por-que" },
     ],
     cta: "Book a Call",
     ariaTheme: "Toggle theme",

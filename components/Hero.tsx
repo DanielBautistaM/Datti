@@ -7,18 +7,18 @@ const t = {
   es: {
     title1: "El poder de",
     title2: "controlar tus datos.",
-    sub: (
-      <>Datos sin sistema es dinero que se escapa. Construimos la infraestructura para que{" "}<strong style={{ color: "var(--text-primary)", fontWeight: 600 }}>cada número cuente</strong>{" "}y cada decisión sea tuya.</>
-    ),
+    sub1: "Datos sin sistema es dinero que se escapa. Construimos la infraestructura para que ",
+    subBold: "cada número cuente",
+    sub2: " y cada decisión sea tuya.",
     cta1: "Tomar el Control →",
     cta2: "Ver Paquetes",
   },
   en: {
     title1: "The power of",
     title2: "owning your data.",
-    sub: (
-      <>Scattered data is money left on the table. We build the infrastructure so{" "}<strong style={{ color: "var(--text-primary)", fontWeight: 600 }}>every number counts</strong>{" "}and every decision is yours.</>
-    ),
+    sub1: "Scattered data is money left on the table. We build the infrastructure so ",
+    subBold: "every number counts",
+    sub2: " and every decision is yours.",
     cta1: "Take Control →",
     cta2: "View Plans",
   },
@@ -49,74 +49,11 @@ export default function Hero({ lang = "es" }: { lang?: Lang }) {
       {/* Dot grid */}
       <div className="absolute inset-0 dot-grid opacity-[0.35] dark:opacity-[0.7] pointer-events-none" />
 
-      {/* Left side light beam */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          left: 0,
-          top: "10%",
-          width: 340,
-          height: "80%",
-          background: "linear-gradient(90deg, rgba(92,77,255,0.13) 0%, rgba(92,77,255,0.04) 60%, transparent 100%)",
-          filter: "blur(40px)",
-          borderRadius: "0 100% 100% 0",
-          animation: "float 11s ease-in-out infinite",
-        }}
-      />
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          left: 0,
-          top: "25%",
-          width: 160,
-          height: "40%",
-          background: "linear-gradient(90deg, rgba(123,111,255,0.18) 0%, transparent 100%)",
-          filter: "blur(24px)",
-          animation: "float 8s ease-in-out infinite 1.5s",
-        }}
-      />
-
-      {/* Right side light beam */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          right: 0,
-          top: "15%",
-          width: 340,
-          height: "70%",
-          background: "linear-gradient(270deg, rgba(155,77,255,0.12) 0%, rgba(155,77,255,0.04) 60%, transparent 100%)",
-          filter: "blur(40px)",
-          borderRadius: "100% 0 0 100%",
-          animation: "float 13s ease-in-out infinite 0.8s",
-        }}
-      />
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          right: 0,
-          top: "35%",
-          width: 160,
-          height: "35%",
-          background: "linear-gradient(270deg, rgba(184,127,255,0.16) 0%, transparent 100%)",
-          filter: "blur(24px)",
-          animation: "float 9s ease-in-out infinite 2.2s",
-        }}
-      />
-
-      {/* Center ambient orb */}
-      <div className="orb" style={{
-        width: 600, height: 600,
-        background: "radial-gradient(circle, rgba(92,77,255,0.07) 0%, transparent 70%)",
-        top: "50%", left: "50%",
-        transform: "translate(-50%, -50%)",
-        filter: "blur(80px)",
-        animation: "float 10s ease-in-out infinite",
-      }} />
 
       {/* Mouse follow glow */}
       <div
         className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(460px circle at var(--mx) var(--my), rgba(92,77,255,0.06), transparent 60%)" }}
+        style={{ background: "radial-gradient(460px circle at var(--mx) var(--my), rgba(0,71,255,0.06), transparent 60%)" }}
       />
 
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-7">
@@ -144,7 +81,7 @@ export default function Hero({ lang = "es" }: { lang?: Lang }) {
             fontWeight: 400,
           }}
         >
-          {tx.sub}
+          {tx.sub1}<strong style={{ color: "var(--text-primary)", fontWeight: 600 }}>{tx.subBold}</strong>{tx.sub2}
         </p>
 
         {/* CTAs */}
@@ -152,7 +89,7 @@ export default function Hero({ lang = "es" }: { lang?: Lang }) {
           className="flex flex-col sm:flex-row gap-3 mt-1"
           style={{ opacity: 0, animation: "fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.48s forwards" }}
         >
-          <a href="#contacto" className="btn-primary text-base">{tx.cta1}</a>
+          <a href={lang === "es" ? "/agendar" : "/schedule"} className="btn-primary text-base">{tx.cta1}</a>
           <a href="#servicios" className="btn-ghost text-base">{tx.cta2}</a>
         </div>
 

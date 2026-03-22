@@ -129,8 +129,8 @@ function PainCard({ p, i }: { p: { title: string; desc: string }; i: number }) {
         transition: hovered
           ? "transform 0.12s ease, box-shadow 0.3s ease, border-color 0.3s ease"
           : "transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease",
-        boxShadow: hovered ? "0 12px 40px rgba(92,77,255,0.18)" : undefined,
-        borderColor: hovered ? "rgba(92,77,255,0.35)" : undefined,
+        boxShadow: hovered ? "0 12px 40px rgba(0,71,255,0.18)" : undefined,
+        borderColor: hovered ? "rgba(0,71,255,0.35)" : undefined,
       }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
@@ -142,7 +142,7 @@ function PainCard({ p, i }: { p: { title: string; desc: string }; i: number }) {
           style={{
             position: "absolute",
             inset: 0,
-            background: `radial-gradient(260px circle at ${mouse.x}px ${mouse.y}px, rgba(92,77,255,0.13) 0%, transparent 70%)`,
+            background: `radial-gradient(260px circle at ${mouse.x}px ${mouse.y}px, rgba(0,71,255,0.13) 0%, transparent 70%)`,
             pointerEvents: "none",
             transition: "opacity 0.2s ease",
           }}
@@ -152,7 +152,7 @@ function PainCard({ p, i }: { p: { title: string; desc: string }; i: number }) {
       <div
         className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
         style={{
-          background: hovered ? "rgba(92,77,255,0.15)" : "var(--accent-light)",
+          background: hovered ? "rgba(0,71,255,0.15)" : "var(--accent-light)",
           color: "var(--accent)",
           transition: "background 0.3s ease",
         }}

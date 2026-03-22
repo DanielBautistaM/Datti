@@ -6,7 +6,7 @@ const marks = [
     label: "Trazo ascendente",
     svg: (
       <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
-        <path d="M 4 26 C 8 24 14 18 28 6" stroke="#5C4DFF" strokeWidth="3.5" strokeLinecap="round"/>
+        <path d="M 4 26 C 8 24 14 18 28 6" stroke="#0047FF" strokeWidth="3.5" strokeLinecap="round"/>
       </svg>
     ),
   },
@@ -15,9 +15,9 @@ const marks = [
     label: "Nodo central",
     svg: (
       <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
-        <circle cx="16" cy="16" r="4.5" fill="#5C4DFF" />
-        <circle cx="16" cy="16" r="10" stroke="#5C4DFF" strokeWidth="1.5" opacity="0.25" />
-        <circle cx="16" cy="16" r="14" stroke="#5C4DFF" strokeWidth="1" opacity="0.10" />
+        <circle cx="16" cy="16" r="4.5" fill="#0047FF" />
+        <circle cx="16" cy="16" r="10" stroke="#0047FF" strokeWidth="1.5" opacity="0.25" />
+        <circle cx="16" cy="16" r="14" stroke="#0047FF" strokeWidth="1" opacity="0.10" />
       </svg>
     ),
   },
@@ -26,8 +26,8 @@ const marks = [
     label: "Pipeline",
     svg: (
       <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
-        <path d="M 4 22 L 4 10 Q 4 6 8 6 L 24 6 Q 28 6 28 10 L 28 22" stroke="#5C4DFF" strokeWidth="2.2" strokeLinecap="round" fill="none" opacity="0.35"/>
-        <path d="M 4 22 Q 4 26 8 26 L 24 26 Q 28 26 28 22" stroke="#5C4DFF" strokeWidth="2.2" strokeLinecap="round" fill="none"/>
+        <path d="M 4 22 L 4 10 Q 4 6 8 6 L 24 6 Q 28 6 28 10 L 28 22" stroke="#0047FF" strokeWidth="2.2" strokeLinecap="round" fill="none" opacity="0.35"/>
+        <path d="M 4 22 Q 4 26 8 26 L 24 26 Q 28 26 28 22" stroke="#0047FF" strokeWidth="2.2" strokeLinecap="round" fill="none"/>
       </svg>
     ),
   },
@@ -36,9 +36,9 @@ const marks = [
     label: "Espiral mínima",
     svg: (
       <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
-        <path d="M 16 16 m 0 -10 a 10 10 0 1 1 -0.01 0" stroke="#5C4DFF" strokeWidth="2" strokeLinecap="round" opacity="0.25"/>
-        <path d="M 16 16 m 0 -6 a 6 6 0 1 1 -0.01 0" stroke="#5C4DFF" strokeWidth="2" strokeLinecap="round" opacity="0.55"/>
-        <circle cx="16" cy="16" r="2.5" fill="#5C4DFF" />
+        <path d="M 16 16 m 0 -10 a 10 10 0 1 1 -0.01 0" stroke="#0047FF" strokeWidth="2" strokeLinecap="round" opacity="0.25"/>
+        <path d="M 16 16 m 0 -6 a 6 6 0 1 1 -0.01 0" stroke="#0047FF" strokeWidth="2" strokeLinecap="round" opacity="0.55"/>
+        <circle cx="16" cy="16" r="2.5" fill="#0047FF" />
       </svg>
     ),
   },
@@ -47,8 +47,8 @@ const marks = [
     label: "Dos trazos",
     svg: (
       <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
-        <path d="M 6 24 L 26 8" stroke="#5C4DFF" strokeWidth="3" strokeLinecap="round"/>
-        <path d="M 6 24 L 26 24" stroke="#5C4DFF" strokeWidth="1.5" strokeLinecap="round" opacity="0.3"/>
+        <path d="M 6 24 L 26 8" stroke="#0047FF" strokeWidth="3" strokeLinecap="round"/>
+        <path d="M 6 24 L 26 24" stroke="#0047FF" strokeWidth="1.5" strokeLinecap="round" opacity="0.3"/>
       </svg>
     ),
   },
@@ -57,11 +57,11 @@ const marks = [
     label: "Flujo",
     svg: (
       <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
-        <circle cx="6" cy="16" r="3" fill="#5C4DFF" opacity="0.4"/>
-        <circle cx="16" cy="16" r="3" fill="#5C4DFF" opacity="0.7"/>
-        <circle cx="26" cy="16" r="3" fill="#5C4DFF" />
-        <line x1="9" y1="16" x2="13" y2="16" stroke="#5C4DFF" strokeWidth="1.5" opacity="0.35" strokeLinecap="round"/>
-        <line x1="19" y1="16" x2="23" y2="16" stroke="#5C4DFF" strokeWidth="1.5" opacity="0.6" strokeLinecap="round"/>
+        <circle cx="6" cy="16" r="3" fill="#0047FF" opacity="0.4"/>
+        <circle cx="16" cy="16" r="3" fill="#0047FF" opacity="0.7"/>
+        <circle cx="26" cy="16" r="3" fill="#0047FF" />
+        <line x1="9" y1="16" x2="13" y2="16" stroke="#0047FF" strokeWidth="1.5" opacity="0.35" strokeLinecap="round"/>
+        <line x1="19" y1="16" x2="23" y2="16" stroke="#0047FF" strokeWidth="1.5" opacity="0.6" strokeLinecap="round"/>
       </svg>
     ),
   },
@@ -70,7 +70,7 @@ const marks = [
     label: "Pulso",
     svg: (
       <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
-        <polyline points="2,16 8,16 11,8 14,24 17,12 20,16 30,16" stroke="#5C4DFF" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        <polyline points="2,16 8,16 11,8 14,24 17,12 20,16 30,16" stroke="#0047FF" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
       </svg>
     ),
   },
@@ -79,8 +79,8 @@ const marks = [
     label: "Ángulo",
     svg: (
       <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
-        <path d="M 6 26 L 6 8 L 26 8" stroke="#5C4DFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="22" cy="20" r="3.5" fill="#5C4DFF" opacity="0.9"/>
+        <path d="M 6 26 L 6 8 L 26 8" stroke="#0047FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="22" cy="20" r="3.5" fill="#0047FF" opacity="0.9"/>
       </svg>
     ),
   },

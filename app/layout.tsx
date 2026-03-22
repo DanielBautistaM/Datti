@@ -24,13 +24,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html suppressHydrationWarning className="dark">
+    <html suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
             try {
               var saved = localStorage.getItem('datti-theme');
-              var theme = saved || 'dark';
+              var theme = saved || 'light';
               document.documentElement.classList.toggle('dark', theme === 'dark');
             } catch(e) {}
           })();

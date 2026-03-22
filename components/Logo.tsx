@@ -16,7 +16,7 @@ export default function Logo({ size = "md", showWordmark = true }: LogoProps) {
   const dotSize = { sm: 5, md: 6, lg: 9 }[size];
 
   return (
-    <div className="flex items-center select-none" style={{ gap: 2 }}>
+    <div className="flex items-center select-none" style={{ gap: 4 }}>
       <span
         className={`${text} font-display font-bold leading-none`}
         style={{
@@ -26,7 +26,7 @@ export default function Logo({ size = "md", showWordmark = true }: LogoProps) {
       >
         datti
       </span>
-      <svg width={dotSize} height={dotSize} viewBox="0 0 6 6" fill="none" style={{ marginTop: "auto" }}>
+      <svg width={dotSize} height={dotSize} viewBox="0 0 6 6" fill="none" style={{ marginBottom: "-27%" }}>
         <circle cx="3" cy="3" r="3" fill="var(--accent)" />
       </svg>
     </div>

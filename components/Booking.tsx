@@ -84,7 +84,7 @@ export default function Booking({ lang = "es" }: { lang?: Lang }) {
     return () => ob.disconnect();
   }, []);
 
-  const calSrc = `https://cal.com/${CAL_USER}/${CAL_EVENT}?embed=true&theme=${calTheme}&brandColor=%235C4DFF&layout=month_view`;
+  const calSrc = `https://cal.com/${CAL_USER}/${CAL_EVENT}?embed=true&theme=${calTheme}&brandColor=%230047FF&layout=month_view`;
 
   return (
     <section className="relative py-20 px-6 overflow-hidden" ref={ref}>
@@ -92,7 +92,7 @@ export default function Booking({ lang = "es" }: { lang?: Lang }) {
         className="orb"
         style={{
           width: 500, height: 500,
-          background: "radial-gradient(circle, rgba(92,77,255,0.09) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,71,255,0.09) 0%, transparent 70%)",
           top: "0%", right: "-5%", filter: "blur(80px)",
           animation: "float 11s ease-in-out infinite",
         }}
@@ -121,9 +121,11 @@ export default function Booking({ lang = "es" }: { lang?: Lang }) {
           style={{
             borderRadius: 20,
             overflow: "hidden",
-            border: "1px solid var(--border)",
-            background: "var(--bg-card)",
-            boxShadow: "var(--shadow-lg)",
+            border: "1px solid rgba(0,71,255,0.15)",
+            background: "rgba(255,255,255,0.45)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            boxShadow: "0 8px 32px rgba(0,71,255,0.08), 0 2px 8px rgba(0,0,0,0.04)",
             height: 600,
           }}
         >

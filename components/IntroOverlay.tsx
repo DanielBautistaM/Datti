@@ -65,7 +65,7 @@ export default function IntroOverlay({ lang }: { lang: Lang }) {
         top: 0,
         height: "50vh",
         transform: leaving ? "translateY(-100%)" : "translateY(0)",
-        borderBottom: "1px solid rgba(92,77,255,0.15)",
+        borderBottom: "1px solid rgba(0,71,255,0.15)",
       }}>
         {/* Top decorative streams */}
         <DataStreams side="top" />
@@ -77,7 +77,7 @@ export default function IntroOverlay({ lang }: { lang: Lang }) {
         bottom: 0,
         height: "50vh",
         transform: leaving ? "translateY(100%)" : "translateY(0)",
-        borderTop: "1px solid rgba(92,77,255,0.15)",
+        borderTop: "1px solid rgba(0,71,255,0.15)",
       }}>
         <DataStreams side="bottom" />
       </div>
@@ -107,11 +107,11 @@ export default function IntroOverlay({ lang }: { lang: Lang }) {
               style={{
                 width: 14,
                 borderRadius: 4,
-                background: "linear-gradient(180deg, #7B6FFF, #5C4DFF)",
+                background: "linear-gradient(180deg, #5870FF, #0047FF)",
                 opacity: bar.opacity,
                 height: barsReady ? bar.h : 0,
                 transition: `height 0.6s cubic-bezier(0.34,1.56,0.64,1) ${bar.delay}`,
-                boxShadow: "0 0 20px rgba(92,77,255,0.5)",
+                boxShadow: "0 0 20px rgba(0,71,255,0.5)",
               }}
             />
           ))}
@@ -154,7 +154,7 @@ export default function IntroOverlay({ lang }: { lang: Lang }) {
                 fontWeight: 700,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                background: "linear-gradient(90deg, #7B6FFF, #B87FFF)",
+                background: "linear-gradient(90deg, #5870FF, #4460FF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}>
@@ -223,7 +223,7 @@ function DataStreams({ side }: { side: "top" | "bottom" }) {
               fontFamily: "monospace",
               fontSize: "0.65rem",
               fontWeight: 700,
-              color: "#7B6FFF",
+              color: "#5870FF",
               letterSpacing: "0.05em",
               whiteSpace: "nowrap",
             }}>
@@ -239,7 +239,7 @@ function DataStreams({ side }: { side: "top" | "bottom" }) {
         width: 400,
         height: 400,
         borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(92,77,255,0.12) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(0,71,255,0.12) 0%, transparent 70%)",
         left: "50%",
         top: "50%",
         transform: "translate(-50%, -50%)",

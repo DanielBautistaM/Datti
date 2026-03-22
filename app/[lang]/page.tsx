@@ -16,6 +16,7 @@ export default async function Home({
   const { lang } = await params;
   return (
     <main>
+
 <Navbar lang={lang} />
       <Hero lang={lang} />
       <Problem lang={lang} />
