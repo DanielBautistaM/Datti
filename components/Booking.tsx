@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import type { Lang } from "@/lib/types";
 
 // ── Replace with your Cal.com username and event slug ──
-const CAL_LINK = "datti/llamada-30min";
+const CAL_LINK = "datti/30min";
 
 const content = {
   es: {
