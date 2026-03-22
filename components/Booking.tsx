@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import type { Lang } from "@/lib/types";
+import Logo from "@/components/Logo";
 
-// ── Replace with your Cal.com username and event slug ──
 const CAL_LINK = "datti/30min";
 
 const content = {
@@ -12,28 +12,22 @@ const content = {
     title1: "Hablemos de",
     title2: "tus datos.",
     sub: "30 minutos. Sin costo. Te decimos exactamente qué necesita tu empresa y cómo lograrlo.",
+    back: "← Volver",
   },
   en: {
     tag: "Book a Call",
     title1: "Let's talk about",
     title2: "your data.",
     sub: "30 minutes. No cost. We'll tell you exactly what your business needs and how to get there.",
+    back: "← Back",
   },
 };
 
-export default function Booking({ lang = "es" }: { lang?: Lang }) {
+export default function Booking({ lang = "es", standalone = false }: { lang?: Lang; standalone?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const tx = content[lang];
 
   useEffect(() => {
-    // Reveal animation observer
-    const ob = new IntersectionObserver(
-      (e) => e.forEach((x) => x.isIntersecting && x.target.classList.add("visible")),
-      { threshold: 0.05 }
-    );
-    ref.current?.querySelectorAll(".reveal").forEach((el) => ob.observe(el));
-
-    // Load Cal.com embed script
     const existing = document.getElementById("cal-embed-script");
     if (!existing) {
       const script = document.createElement("script");
@@ -54,53 +48,60 @@ export default function Booking({ lang = "es" }: { lang?: Lang }) {
           elementOrSelector: "#cal-booking-embed",
           calLink: "${CAL_LINK}",
           layout: "month_view",
-          theme: "dark",
         });
         Cal("ui", {
-          theme: "dark",
           styles: { branding: { brandColor: "#5C4DFF" } },
           hideEventTypeDetails: false,
         });
       `;
       document.head.appendChild(script);
     }
-
-    return () => ob.disconnect();
   }, []);
 
-  return (
-    <section id="agendar" className="relative py-32 px-6 overflow-hidden" ref={ref}>
-      <div className="divider absolute top-0 left-0 right-0" />
-
-      {/* Ambient orb */}
-      <div className="orb" style={{
-        width: 500, height: 500,
-        background: "radial-gradient(circle, rgba(92,77,255,0.09) 0%, transparent 70%)",
-        top: "10%", right: "-5%", filter: "blur(80px)",
-        animation: "float 11s ease-in-out infinite",
-      }} />
-
-      <div className="max-w-5xl mx-auto">
+  if (standalone) {
+    return (
+      <div
+        style={{
+          minHeight: "100vh",
+          background: "var(--bg)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          padding: "40px 24px 60px",
+        }}
+        className="dark"
+      >
+        {/* Top bar */}
+        <div style={{ width: "100%", maxWidth: 860, display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 48 }}>
+          <a href={lang === "es" ? "/es" : "/en"} style={{ textDecoration: "none" }}>
+            <Logo size="md" />
+          </a>
+          <a
+            href={lang === "es" ? "/es" : "/en"}
+            style={{ fontSize: "0.85rem", color: "var(--text-muted)", textDecoration: "none", fontWeight: 500 }}
+          >
+            {tx.back}
+          </a>
+        </div>
 
         {/* Header */}
-        <div className="text-center mb-12 reveal">
-          <span className="tag-pill justify-center">{tx.tag}</span>
-          <h2
-            className="font-display font-black leading-tight mt-5 mb-4"
-            style={{ fontSize: "clamp(2rem, 4.5vw, 3.25rem)", color: "var(--text-primary)" }}
+        <div style={{ textAlign: "center", marginBottom: 40, maxWidth: 560 }}>
+          <h1
+            className="font-display font-black leading-tight"
+            style={{ fontSize: "clamp(2rem, 5vw, 3rem)", color: "var(--text-primary)", marginBottom: 12 }}
           >
-            {tx.title1}{" "}
-            <span className="text-gradient">{tx.title2}</span>
-          </h2>
-          <p className="text-lg max-w-lg mx-auto" style={{ color: "var(--text-secondary)" }}>
+            {tx.title1} <span className="text-gradient">{tx.title2}</span>
+          </h1>
+          <p style={{ color: "var(--text-secondary)", fontSize: "1rem", lineHeight: 1.6 }}>
             {tx.sub}
           </p>
         </div>
 
-        {/* Cal.com inline embed */}
+        {/* Calendar */}
         <div
-          className="reveal"
           style={{
+            width: "100%",
+            maxWidth: 860,
             borderRadius: 20,
             overflow: "hidden",
             border: "1px solid var(--border)",
@@ -109,12 +110,18 @@ export default function Booking({ lang = "es" }: { lang?: Lang }) {
             minHeight: 600,
           }}
         >
-          <div
-            id="cal-booking-embed"
-            style={{ width: "100%", minHeight: 600 }}
-          />
+          <div id="cal-booking-embed" style={{ width: "100%", minHeight: 600 }} />
         </div>
+      </div>
+    );
+  }
 
+  // Embedded in main page (unused for now)
+  return (
+    <section className="relative py-20 px-6 overflow-hidden" ref={ref}>
+      <div className="divider absolute top-0 left-0 right-0" />
+      <div className="max-w-5xl mx-auto">
+        <div id="cal-booking-embed" style={{ width: "100%", minHeight: 600 }} />
       </div>
     </section>
   );
